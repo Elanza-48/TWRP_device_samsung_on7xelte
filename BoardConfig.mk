@@ -90,4 +90,4 @@ TARGET_HW_DISK_ENCRYPTION := true
 # Init properties from bootloader version, ex. model info
 TARGET_INIT_VENDOR_LIB := libinit_on7xelte
 TARGET_RECOVERY_DEVICE_MODULES := libinit_on7xelte
-TARGET_LIBINIT_DEFINES_FILE := device/samsung/j7xelte/init/init_on7xelte.cpp
+TARGET_LIBINIT_DEFINES_FILE := device/samsung/on7xelte/init/init_on7xelte.cpp
