@@ -42,9 +42,9 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE  := ext4
 # blockdev --getbsz /dev/block/mmcblk0p9
 BOARD_FLASH_BLOCK_SIZE := 4096
 
-TARGET_KERNEL_SOURCE := kernel/samsung/exynos7870
+TARGET_KERNEL_SOURCE := kernel/samsung/on7xelte
 TARGET_KERNEL_CONFIG := twrp_defconfig
-TARGET_PREBUILT_KERNEL := device/samsung/on7xelte/Image
+#TARGET_PREBUILT_KERNEL := device/samsung/on7xelte/Image
 TARGET_PREBUILT_DTB := device/samsung/on7xelte/dt.img
 BOARD_KERNEL_SEPARATED_DT := true
 
