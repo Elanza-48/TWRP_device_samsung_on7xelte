@@ -43,8 +43,7 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE  := ext4
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 TARGET_KERNEL_SOURCE := kernel/samsung/on7xelte
-TARGET_KERNEL_CONFIG := twrp_defconfig
-#TARGET_PREBUILT_KERNEL := device/samsung/on7xelte/Image
+TARGET_KERNEL_CONFIG := lineage-on7xelte_defconfig
 TARGET_PREBUILT_DTB := device/samsung/on7xelte/dt.img
 BOARD_KERNEL_SEPARATED_DT := true
 
@@ -82,10 +81,8 @@ TW_MTP_DEVICE := "/dev/mtp_usb"
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_SAMSUNG := true
 TARGET_HW_DISK_ENCRYPTION := true
-
-# Debug flags
-#TWRP_INCLUDE_LOGCAT := true
-#TARGET_USES_LOGD := true
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
 
 # Init properties from bootloader version, ex. model info
 TARGET_INIT_VENDOR_LIB := libinit_on7xelte

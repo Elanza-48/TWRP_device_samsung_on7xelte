@@ -2,4 +2,4 @@
 
 Omni device tree for TWRP compilation
 
-kernel source : https://github.com/Elanza-48/TWRP_kernel_samsung_on7xelte
+kernel source : https://github.com/Exynos7870/android_kernel_samsung_on7xelte
