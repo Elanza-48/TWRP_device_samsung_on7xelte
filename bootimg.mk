@@ -3,7 +3,7 @@ LOCAL_PATH := $(call my-dir)
 #FLASH_IMAGE_TARGET ?= $(PRODUCT_OUT)/recovery.tar
 
 ifdef TARGET_PREBUILT_DTB
-	BOARD_MKBOOTIMG_ARGS += --ramdisk_offset 0x02000000 --tags_offset 0x01E00000 --dt $(TARGET_PREBUILT_DTB)
+	BOARD_MKBOOTIMG_ARGS += --ramdisk_offset 0x02000000 --tags_offset 0x01e00000 --dt $(TARGET_PREBUILT_DTB)
 endif
 
 LZMA_RAMDISK := $(PRODUCT_OUT)/ramdisk-recovery-lzma.img
