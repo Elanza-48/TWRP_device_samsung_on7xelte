@@ -1,3 +1,5 @@
+LOCAL_PATH := device/samsung/on7xelte
+
 USE_CAMERA_STUB := true
 
 TARGET_NO_BOOTLOADER := true
@@ -28,7 +30,6 @@ TARGET_USES_UNCOMPRESSED_KERNEL := true
 
 BOARD_KERNEL_CMDLINE := # Exynos doesn't take cmdline arguments from boot image
 BOARD_KERNEL_BASE := 0x10000000
-BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 2048
 
 # Partitions
@@ -44,24 +45,25 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 
 TARGET_KERNEL_SOURCE := kernel/samsung/on7xelte
 TARGET_KERNEL_CONFIG := lineage-on7xelte_defconfig
-TARGET_PREBUILT_DTB := device/samsung/on7xelte/dt.img
-BOARD_KERNEL_SEPARATED_DT := true
+TARGET_PREBUILT_DTB := $(LOCAL_PATH)/dt.img
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000 --dt $(TARGET_PREBUILT_DTB)
+#BOARD_KERNEL_SEPARATED_DT := true
 
 # Use these flags if the board has a ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_SUPPRESS_SECURE_ERASE := true
-BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/on7xelte/bootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK :=  $(LOCAL_PATH)/mkbootimg.mk
 
 #Recovery
 #TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.samsungexynos7870
 TARGET_OTA_ASSERT_DEVICE := on7xelte,on7xeltedd
 
 #TWRP
+#BOARD_HAS_NO_REAL_SDCARD := true
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery.fstab
 RECOVERY_SDCARD_ON_DATA := true
-#BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_THEME := portrait_hdpi
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun/file"
@@ -81,6 +83,7 @@ TW_MTP_DEVICE := "/dev/mtp_usb"
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_SAMSUNG := true
 TARGET_HW_DISK_ENCRYPTION := true
+#Debug Flags
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 
