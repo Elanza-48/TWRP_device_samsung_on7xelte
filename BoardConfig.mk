@@ -43,8 +43,9 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE  := ext4
 # blockdev --getbsz /dev/block/mmcblk0p9
 BOARD_FLASH_BLOCK_SIZE := 4096
 
-TARGET_KERNEL_SOURCE := kernel/samsung/on7xelte
-TARGET_KERNEL_CONFIG := lineage-on7xelte_defconfig
+#TARGET_KERNEL_SOURCE := kernel/samsung/on7xelte
+#TARGET_KERNEL_CONFIG := lineage-on7xelte_defconfig
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/Kernel
 TARGET_PREBUILT_DTB := $(LOCAL_PATH)/dt.img
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000 --dt $(TARGET_PREBUILT_DTB)
 #BOARD_KERNEL_SEPARATED_DT := true
@@ -80,14 +81,15 @@ TW_MTP_DEVICE := "/dev/mtp_usb"
 
 
 # Encryption support
-TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_CRYPTO_SAMSUNG := true
-TARGET_HW_DISK_ENCRYPTION := true
+#TW_INCLUDE_CRYPTO := true
+#TW_INCLUDE_CRYPTO_SAMSUNG := true
+#TARGET_HW_DISK_ENCRYPTION := true
+
 #Debug Flags
-TWRP_INCLUDE_LOGCAT := true
-TARGET_USES_LOGD := true
+#TWRP_INCLUDE_LOGCAT := true
+#TARGET_USES_LOGD := true
 
 # Init properties from bootloader version, ex. model info
-TARGET_INIT_VENDOR_LIB := libinit_on7xelte
-TARGET_RECOVERY_DEVICE_MODULES := libinit_on7xelte
-TARGET_LIBINIT_DEFINES_FILE := device/samsung/on7xelte/init/init_on7xelte.cpp
+#TARGET_INIT_VENDOR_LIB := libinit_on7xelte
+#TARGET_RECOVERY_DEVICE_MODULES := libinit_on7xelte
+#TARGET_LIBINIT_DEFINES_FILE := device/samsung/on7xelte/init/init_on7xelte.cpp

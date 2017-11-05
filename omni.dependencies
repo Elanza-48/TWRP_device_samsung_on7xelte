@@ -1,8 +1,2 @@
 [
- {
-    "remote":      "github",
-    "repository":  "Exynos7870/android_kernel_samsung_on7xelte",
-    "target_path": "kernel/samsung/on7xelte",
-    "revision":    "cm-14.1"
-  }
 ]

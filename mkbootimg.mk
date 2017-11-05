@@ -1,17 +1,15 @@
 LOCAL_PATH := $(call my-dir)
 
-PREBUILT_DTIMAGE_TARGET := $(LOCAL_PATH)/dt.img
 LZMA_RAMDISK := $(PRODUCT_OUT)/ramdisk-recovery-lzma.img
-LZMA_BIN := $(shell which lzma)
 
 $(LZMA_RAMDISK): $(recovery_ramdisk)
-	 gunzip -f < $(recovery_ramdisk) | $(LZMA_BIN) > $@
+	 gunzip -f < $(recovery_ramdisk) | lzma -e > $@
 
 FLASH_IMAGE_TARGET ?= $(PRODUCT_OUT)/recovery.tar
 
-$(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(PREBUILT_DTIMAGE_TARGET) $(recovery_kernel) $(LZMA_RAMDISK)
+$(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(TARGET_PREBUILT_DTB) $(recovery_kernel) $(LZMA_RAMDISK)
 	@echo -e ${CL_GRN}"----- Making recovery image ------"${CL_RST}
-	$(hide) $(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) $(BOARD_MKBOOTIMG_ARGS) --output $@ --ramdisk $(LZMA_RAMDISK)
+	$(hide) $(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) $(BOARD_MKBOOTIMG_ARGS) --dt $(TARGET_PREBUILT_DTB) --output $@ --ramdisk $(LZMA_RAMDISK)
 	@echo -e ${CL_CYN}"Made recovery image: $@"${CL_RST}
 	@echo -e ${CL_GRN}"----- Lying about SEAndroid state to Samsung bootloader ------"${CL_RST}
 	$(hide) echo -n "SEANDROIDENFORCE" >> $(INSTALLED_RECOVERYIMAGE_TARGET)
