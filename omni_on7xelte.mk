@@ -17,6 +17,6 @@ PRODUCT_NAME := omni_on7xelte
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
 
-# DTB Work-Around
- +PRODUCT_COPY_FILES += \
- +    device/samsung/on7xelte/dt.img:dt.img
+# dt
+PRODUCT_COPY_FILES += \
+    device/samsung/on7xelte/dt.img:dt.img

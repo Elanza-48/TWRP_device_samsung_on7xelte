@@ -81,7 +81,7 @@ TW_MTP_DEVICE := "/dev/mtp_usb"
 
 
 # Encryption support
-#TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO := true
 #TW_INCLUDE_CRYPTO_SAMSUNG := true
 #TARGET_HW_DISK_ENCRYPTION := true
 
