@@ -32,12 +32,17 @@
 #include "vendor_init.h"
 #include "property_service.h"
 #include "util.h"
+#include <sys/_system_properties.h>
+#include <android-base/properties.h>
+
+using android::base::GetProperty;
+using android::base::SetProperty;
 
 void vendor_load_properties()
 {
 	char bootloader[PROP_VALUE_MAX];
 
-	property_get("ro.bootloader", bootloader);
+	GetProperty("ro.bootloader",bootloader"");
 
 	if (strstr(bootloader, "G610Y")) {
 		
@@ -60,8 +65,8 @@ void vendor_load_properties()
 		property_set("ro.product.model", "SM-G610F");
 		//property_set("ro.product.name", "on7xeltedd");
 	}
-	property_set("ro.product.device", "on7xelte");
-	property_set("ro.product.name", "on7xeltedd");
+	SetProperty("ro.product.device", "on7xelte");
+	SetProperty("ro.product.name", "on7xeltedd");
 }
 
 
